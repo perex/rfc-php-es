@@ -1,15 +1,14 @@
-# PHP RFC: Removal of dead or not yet PHP7 ported SAPIs and extensions
-* Version: 2
-* Date: 2015-01-14
-* Author: Anatol Belski, <ab@php.net>
-* Status: Closed
-* First Published at: http://wiki.php.net/rfc/removal_of_dead_sapis
+# Eliminación de SAPIs obsoletas y extensiones que no han sido portadas a PHP7
+* Fecha: 2015-01-14
+* Autor: Anatol Belski, <ab@php.net>
+* Estado: Cerrada
+* Original: http://wiki.php.net/rfc/removal_of_dead_sapis
 
-## Introduction
+## Introducción
 
-Currently PHP contains many SAPIs to the servers either completely unavailable or unsupported for a long time. The same can be said about several extensions which are for long deprecated or their dependency libraries are unsupported. Here's a short list:
+Actualmente PHP contiene muchos SAPIs no disponibles o no soportados en servidores desde hace mucho tiempo. Lo mismo puede decirse de varias extensiones que son ha sido declarados como obsoletas hace mucho tiempo o las librerías de las que dependen ya no son compatibles. Aquí hay una lista corta:
 
-## Dead SAPIs:
+## SAPIs eliminadas:
 * aolserver
 * apache
 * apache_hooks
@@ -25,3 +24,30 @@ Currently PHP contains many SAPIs to the servers either completely unavailable o
 * webjames
 * apache2filter - not really dead, but currently broken
 * nsapi
+
+## Extensiones with dependencias obsoletas o que ya no son mantenidas por sus desarrolladores
+* imap
+* mcrypt
+
+## Extensiones no portados ya a PHP7
+* interbase
+* mssql
+* oci8
+* pdo_dblib
+* pdo_oci
+* sybase_ct
+
+## Estensiones deprecadas (obsoletas) manejadas por este otro RFC https://wiki.php.net/rfc/remove_deprecated_functionality_in_php7 (not gestiones en este  RFC)
+* mysql
+* ereg   
+
+Esto lleva a la situación en la que el repositorio contiene mucho código no mantenido. El código que no se actualiza durante años o que depende de libreías muy pesadas que no actualizan, son candidatas a "deprecarse" en nuevas versiones del lenguaje. Además, el código no hace falta ser mantenido evitando riesgos de seguridad.
+
+## Investigación (justitifación)
+
+### sapi/aolserver
+  * Server home: http://sourceforge.net/projects/aolserver/
+  * Server last release: 2012
+  * Server debian supported: yes
+  * SAPI status: 5.4 builds with the latest server API
+  
